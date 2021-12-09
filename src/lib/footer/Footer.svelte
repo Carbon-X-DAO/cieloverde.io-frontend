@@ -11,7 +11,7 @@
 				<a href="https://instagram.com/cieloverde2022"><i class="fa fa-instagram"></i>cieloverde2022</a>
 			</div>
 			<div class="col">
-				<p class="copyright">With <i class="fa fa-heart"></i> by © CIELO VERDE {year}</p>
+				<p class="copyright">Hecho con <i class="fa fa-heart"></i> by © CIELO VERDE {year}</p>
 			</div>
 		</div>
 	</div>

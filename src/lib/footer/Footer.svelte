@@ -6,8 +6,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<a href="mailto:example@gmail.com"><i class="fa fa-envelope"></i> example@gmail.com</a>
-				<a href="mailto:github.com"><i class="fa fa-github"></i> example@gmail.com</a>
+				<a href="mailto:cieloverde2022@gmail.com"><i class="fa fa-envelope"></i>cieloverde2022@gmail.com</a>
+				<a href="https://t.me/cieloverde2022"><i class="fa fa-telegram"></i>cieloverde2022</a>
+				<a href="https://instagram.com/cieloverde2022"><i class="fa fa-instagram"></i>cieloverde2022</a>
 			</div>
 			<div class="col">
 				<p class="copyright">With <i class="fa fa-heart"></i> by © CIELO VERDE {year}</p>

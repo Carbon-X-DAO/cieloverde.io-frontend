@@ -17,7 +17,7 @@
 	<div class="content form">
 		<form action="/submit" method="POST" bind:this={root}>
 			<section>
-			<h2>Personal Information</h2>
+			<h2>Informacion Personal</h2>
 			<input type="text" id="fname" name="fname" placeholder="Nombre *" class="wide-input" required>
 			<input type="text" id="lname" name="lname1" placeholder="Apellidos *" class="narrow-input" required>
 			<input type="text" id="country" name="country" placeholder="Pais" class="narrow-input">

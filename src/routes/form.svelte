@@ -27,7 +27,7 @@
 			<input type="text" id="town" name="neighborhood" placeholder="Barrio" class="narrow-input">
 			<input type="text" id="street" name="addr" placeholder="Calle" class="narrow-input">
 			<input type="text" id="number" name="address_number" placeholder="Numero" class="narrow-input">
-			<input type="text" id="id_no" name="id_no" pattern="[0-9]{'{'}10{'}'}" placeholder="Numero de ID *" class="narrow-input" required>
+			<input type="text" id="id_no" name="id_no" pattern="[0-9]{'{'}6-10{'}'}" placeholder="Numero de ID *" class="narrow-input" required>
 			<input type="text" id="cell" name="cell" pattern="3[0-9]{'{'}9{'}'}" placeholder="Número de Teléfono (3XXXXXXXXXX)" class="wide-input">
 			<input type="text" id="email" name="email" placeholder="Correo Electrónico *" class="wide-input" required>
 			<select name="gender" class="narrow-input select select-placeholder">

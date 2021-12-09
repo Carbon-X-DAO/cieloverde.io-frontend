@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     let root;
-    let genders = ["Male", "Female", "Other"];
+    let genders = ["Masculino", "Femenino", "Otro"];
     let dropdownNames = ["gender", "age", "daily_qty", "weekly_qty", "monthly_qty"]
 
     onMount(() => {
@@ -18,21 +18,22 @@
 		<form action="/submit" method="POST" bind:this={root}>
 			<section>
 			<h2>Personal Information</h2>
-			<input type="text" id="fname" name="fname" placeholder="First name *" class="wide-input" required>
-			<input type="text" id="lname" name="lname1" placeholder="Last name 1 *" class="narrow-input" required>
-			<input type="text" id="lname" name="lname2" placeholder="Last name 2" class="narrow-input">
-			<input type="text" id="lname" name="addr" placeholder="Postal Address" class="narrow-input">
-			<input type="text" id="lname" name="id_no" placeholder="Identification Number *" class="narrow-input" required>
-			<input type="text" id="lname" name="cell" pattern="3[0-9]{'{'}9{'}'}" placeholder="Telephone Number (3XXXXXXXXXX)" class="wide-input">
-			<input type="text" id="lname" name="email" placeholder="Email Address *" class="wide-input" required>
+			<input type="text" id="fname" name="fname" placeholder="Nombre *" class="wide-input" required>
+			<input type="text" id="lname" name="lname1" placeholder="Apellidos *" class="narrow-input" required>
+			<input type="text" id="city" name="addr" placeholder="Ciudad" class="narrow-input">
+			<input type="text" id="town" name="addr" placeholder="Municipio" class="narrow-input">
+			<input type="text" id="street" name="addr" placeholder="Calle" class="narrow-input">
+			<input type="text" id="id_no" name="id_no" pattern="[0-9]{'{'}10{'}'}" placeholder="Numero de ID *" class="narrow-input" required>
+			<input type="text" id="cell" name="cell" pattern="3[0-9]{'{'}9{'}'}" placeholder="Número de Teléfono (3XXXXXXXXXX)" class="wide-input">
+			<input type="text" id="email" name="email" placeholder="Correo Electrónico *" class="wide-input" required>
 			<select name="gender" class="narrow-input select select-placeholder">
-				<option value="label" disabled selected hidden>Gender</option>
+				<option value="label" disabled selected hidden>Sexo</option>
 				{#each genders as gender}
 				<option value={gender}>{gender}</option>
 				{/each}
 			</select>
 			<select name="age" class="narrow-input select select-placeholder">
-				<option value="label" disabled selected hidden>Age</option>
+				<option value="label" disabled selected hidden>Edad</option>
 				{#each Array(100) as _, i}
 					{#if i>15}
 					<option option={i}>{i}</option>
@@ -42,45 +43,45 @@
 			</section>
 
 			<section>
-			<h2>Marijuana Consumption</h2>
+			<h2>Consumo de Marihuana</h2>
 			<select name="daily_qty" class="narrow-select select select-placeholder">
-				<option disabled selected hidden>Daily</option>
-				<option value="first">Option 1</option>
-				<option value="second">Option 2</option>
-				<option value="second">Option 3</option>
-				<option value="second">Option 4</option>
+				<option disabled selected hidden>Diaria</option>
+				<option value="0g-1g">0g-1g</option>
+				<option value="1g-2g">1g-2g</option>
+				<option value="3g-5g">3g-5g</option>
+				<option value="5g+">5g+</option>
 			</select>
 			<select name="weekly_qty" class="narrow-select select select-placeholder">
-				<option disabled selected hidden>Weekly</option>
-				<option value="first">Option 1</option>
-				<option value="second">Option 2</option>
-				<option value="second">Option 3</option>
-				<option value="second">Option 4</option>
+				<option disabled selected hidden>Semanalmente</option>
+				<option value="0g-5g">0g-5g</option>
+				<option value="5g-10g">5g-10g</option>
+				<option value="10g-20g">10g-20g</option>
+				<option value="20g+">20g+</option>
 			</select>
 			<select name="monthly_qty" class="narrow-select select select-placeholder">
-				<option disabled selected hidden>Monthly</option>
-				<option value="first">Option 1</option>
-				<option value="second">Option 2</option>
-				<option value="second">Option 3</option>
-				<option value="second">Option 4</option>
+				<option disabled selected hidden>Mensual</option>
+				<option value="0g-5g">0g-5g</option>
+				<option value="5g-15g">5g-15g</option>
+				<option value="15g-28g">10g-28g</option>
+				<option value="28g+">28g+ (1 onza)</option>
 			</select>
 			
 			<div class="checkbox">
 				<input type="checkbox" id="newsletter" name="newsletter" value="newsletter">
-				<label for="newsletter">Newsletter</label>
+				<label for="newsletter">Subscribete al boletín</label>
 			</div>
 			<div class="checkbox">
 				<input type="checkbox" id="giftbox" name="giftbox" value="giftbox">
-				<label for="giftbox">Gift Box</label>
+				<label for="giftbox">Caja de regalo</label>
 			</div>
 
 			<div class="checkbox">
 				<input type="checkbox" id="authorization" name="authorization" value="authorization" required>
-				<label for="authorization">Authorization *</label>
+				<label for="authorization">Autorización de uso de información personal *</label>
 			</div>
 
 			<div class="btn-submit-wrap">
-				<input type="submit" value="Submit" class="btn-filled">
+				<input type="submit" value="Entregar" class="btn-filled">
 			</div>
 
 			</section>

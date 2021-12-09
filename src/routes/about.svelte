@@ -2,7 +2,7 @@
 	import { browser, dev } from '$app/env';
 
 	// we don't need any JS on this page, though we'll load
-	// it in dev so that we get hot module replacement...
+	// it in dev so that we get hot module replacement.
 	export const hydrate = dev;
 
 	// ...but if the client-side router is already loaded
@@ -15,7 +15,7 @@
 </script>
 
 <svelte:head>
-	<title>About</title>
+	<title>Sobre</title>
 </svelte:head>
 
 <section class="banner">
@@ -25,17 +25,20 @@
 </section>
 
 <div class="content">
-	<h2>About Us</h2>
+	<h2>Sobre Nosotros</h2>
 	<p>
-	Cielo Verde is the premier distributor of medical cannabis products in
-	Colombia. With the most loyal customer base and reliable supply chains,
-	we ensure the highest quality of product from dirt to door.
+	Cielo Verde es el principal distribuidor de productos de cannabis medicinal en Colombia. Con la base de clientes más leal y las cadenas de suministro confiables, garantizamos la más alta calidad del producto desde la huerta hasta la puerta.
 	</p>
 
 	<p>
-	Started in 2019, Cielo Verde worked closely with regulatory agencies and
-	testing facilities to confirm the purity and economic viability of our operation.
-	Now, we look to make this product available to you for all of your medical needs.
+	Comenzó en 2019, Cielo Verde trabajó en estrecha colaboración con las agencias reguladoras y las instalaciones de prueba para confirmar la pureza y la viabilidad económica de nuestra operación. Ahora, buscamos poner este producto a su disposición para todas sus necesidades médicas.
+	</p>
+	
+	<h3>Futuro Projectos En Desarrollo:</h3>
+	<p>
+	1. Proveedor de semillas y clones con verificación de trazabilidad.
+	2. Proyecto de proveedor contractual.
+	3. Proyecto Medicinal Marajuana.
 	</p>
 
 </div>

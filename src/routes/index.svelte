@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
+	<title>Casa</title>
 </svelte:head>
 
 <div class="container">
@@ -13,8 +13,12 @@
 			<div class="background"></div>
 		</div>
 		<div class="banner__info">
-			<h1>Plant<br>Medicine</h1>
-			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex, dolor. Perspiciatis possimus, quod ad est, impedit totam tempora odio ea, vel id suscipit architecto quos mollitia deleniti. Nisi culpa non ipsam. Velit dicta natus hic dolorem repellendus vitae ad exercitationem?</p>
+			<h1>Plantas<br>Medicinales</h1>
+			<h3>Cielo Verde</h3>
+			<h3>GreenSky Cannabis Company S.A.S</h3>
+			<p>Dando a la planta el cuidado que se merece</p>
+			<p>Nuestro objetivo de producir medicina neutra en carbono</p>
+			<p>Nuestro producto se lanzará en 2022</p>
 		</div>
 	</div>
 
@@ -23,19 +27,19 @@
 			<span class="fa-stack fa-2x">
 				<i class="fa fa-leaf fa-stack-1x"></i>
 			</span>
-			<p>Home</p>
+			<p>Casa</p>
 		</a></li>
 		<li class="card" class:active={$page.path === '/about'}><a sveltekit:prefetch href="/about">
 			<span class="fa-stack fa-2x">
 				<i class="fa fa-globe fa-stack-1x"></i>
 			</span>
-			<p>About</p>
+			<p>Sobre Nosotros/p>
 		</a></li>
 		<li class="card" class:active={$page.path === '/form'}><a sveltekit:prefetch href="/form">
 			<span class="fa-stack fa-2x">
 				<i class="fa fa-pagelines fa-stack-1x"></i>
 			</span>
-			<p>Form</p>
+			<p>Formalario</p>
 		</a></li>
 	</ul>
 

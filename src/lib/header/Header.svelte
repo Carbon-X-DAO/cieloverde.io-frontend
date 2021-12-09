@@ -28,14 +28,14 @@
 			<div class="navbar__nav">
 				<!-- <nav>
 					<ul>
-						<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">Home</a></li>
+						<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">Casa/a></li>
 						<li class:active={$page.path === '/about'}><a sveltekit:prefetch href="/about">Sobre nosotros</a></li>
-						<li class:active={$page.path === '/form'}><a sveltekit:prefetch href="/form">Form</a></li>
+						<li class:active={$page.path === '/form'}><a sveltekit:prefetch href="/form">Formalario</a></li>
 					</ul>
 				</nav> -->
 			
 				<div>
-					<a href="/about" class="ghost-btn">Sobre Nnsotros</a>
+					<a href="/about" class="ghost-btn">Sobre Nosotros</a>
 				</div>
 			</div>
 		</div>

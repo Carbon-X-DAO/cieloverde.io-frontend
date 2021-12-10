@@ -1,6 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     let root;
+
     let genders = ["Masculino", "Femenino", "Otro"];
     let dropdownNames = ["gender", "age", "daily_qty", "weekly_qty", "monthly_qty"]
 
@@ -12,6 +13,10 @@
 			})
 		}
 	});
+
+	let is_newsletter;
+	let is_gift_box;
+	let is_authorized;
 </script>
 <main>
 	<div class="content form">
@@ -19,16 +24,16 @@
 			<section>
 			<h2>Informacion Personal</h2>
 			<input type="text" id="fname" name="fname" placeholder="Nombre *" class="wide-input" required>
-			<input type="text" id="lname" name="lname1" placeholder="Apellidos *" class="narrow-input" required>
+			<input type="text" id="lname" name="lname" placeholder="Apellidos *" class="narrow-input" required>
 			<input type="text" id="country" name="country" placeholder="Pais" class="narrow-input">
 			<input type="text" id="department" name="department" placeholder="Departmento" class="narrow-input">
-			<input type="text" id="city" name="addr" placeholder="Ciudad" class="narrow-input">
-			<input type="text" id="town" name="addr" placeholder="Municipio" class="narrow-input">
+			<input type="text" id="city" name="city" placeholder="Ciudad" class="narrow-input">
+			<input type="text" id="town" name="town" placeholder="Municipio" class="narrow-input">
 			<input type="text" id="town" name="neighborhood" placeholder="Barrio" class="narrow-input">
-			<input type="text" id="street" name="addr" placeholder="Calle" class="narrow-input">
+			<input type="text" id="street" name="street" placeholder="Calle" class="narrow-input">
 			<input type="text" id="number" name="address_number" placeholder="Numero" class="narrow-input">
 			<input type="text" id="id_no" name="id_no" pattern="[0-9]{'{'}6-10{'}'}" placeholder="Numero de ID *" class="narrow-input" required>
-			<input type="text" id="cell" name="cell" pattern="3[0-9]{'{'}9{'}'}" placeholder="Número de Teléfono (3XXXXXXXXXX)" class="wide-input">
+			<input type="text" id="phone" name="phone" pattern="3[0-9]{'{'}9{'}'}" placeholder="Número de Teléfono (3XXXXXXXXXX)" class="wide-input">
 			<input type="text" id="email" name="email" placeholder="Correo Electrónico *" class="wide-input" required>
 			<select name="gender" class="narrow-input select select-placeholder">
 				<option value="label" disabled selected hidden>Sexo</option>
@@ -71,17 +76,17 @@
 			</select>
 			
 			<div class="checkbox">
-				<input type="checkbox" id="newsletter" name="newsletter" value="newsletter">
+				<input type="checkbox" id="newsletter" name="newsletter" value={is_newsletter} bind:checked={is_newsletter}>
 				<label for="newsletter">Subscribete al boletín</label>
 			</div>
 			<div class="checkbox">
-				<input type="checkbox" id="giftbox" name="giftbox" value="giftbox">
-				<label for="giftbox">Caja de regalo</label>
+				<input type="checkbox" id="gift_box" name="gift_box" value={is_gift_box} bind:checked={is_gift_box}>
+				<label for="gift_box">Caja de regalo</label>
 			</div>
 
 			<div class="checkbox">
-				<input type="checkbox" id="authorization" name="authorization" value="authorization" required>
-				<label for="authorization">Autorización de uso de información personal *</label>
+				<input type="checkbox" id="authorized" name="authorized" value={is_authorized} bind:checked={is_authorized}>
+				<label for="authorized">Autorización de uso de información personal *</label>
 			</div>
 
 			<div class="btn-submit-wrap">

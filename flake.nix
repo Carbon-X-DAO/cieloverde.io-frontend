@@ -57,7 +57,6 @@
           shellHook = ''
             cleanup() {
               rm -rf ./node_modules
-              unlink ./node_modules
             };
             export NODE_PATH="${nodeDependencies}/lib/node_modules";
             mkdir node_modules;

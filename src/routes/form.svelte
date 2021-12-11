@@ -2,11 +2,26 @@
     import { onMount } from 'svelte';
     let form;
 
+	let elFname;
+	let elLname;
+	let elEmail;
+	let elID;
+	let elPhone;
+	let elIsAuth;
+
     let genders = ["Masculino", "Femenino", "Otro"];
     let dropdownNames = ["gender", "age", "daily_qty", "weekly_qty", "monthly_qty"]
-	
+
+	let is_newsletter;
+	let is_gift_box;
+	let is_authorized;
+
+	// required fields
+	let fname = "";
+	let lname = "";
 	let id_no = null;
 	let phone = null;
+	let email = null;
 
 	function stripWhitespaceFromID(e) {
 		id_no = e.target.value.trim();
@@ -14,6 +29,55 @@
 
 	function stripWhitespaceFromPhone(e) {
 		phone = e.target.value.trim();
+	}
+
+	function validate(evt) {
+		let requireds = [
+		{
+			name: "fname",
+			invalid: function(val) {return !val},
+			element: elFname,
+			value: fname,
+		},
+		{
+			name: "lname",
+			invalid: function(val) {return !val},
+			element: elLname,
+			value: lname,
+		},
+		{
+			name: "id",
+			invalid: function(val) { if (!val) {return true}; return !/^[0-9]{6,10}$/.test(parseInt(val)) },
+			element: elID,
+			value: id_no,
+		},
+		{
+			name: "phone",
+			invalid: function(val) {if (!val) {return true}; return !/^3[0-9]{9}$/.test(parseInt(val))},
+			element: elPhone,
+			value: phone,
+		},
+			{
+			name: "email",
+			invalid: function(val) {if (!val) {return true}; return false;},
+			element: elEmail,
+			value: email,
+		},
+		{
+			name: "auth",
+			invalid: function(val) {return !is_authorized},
+			element: elIsAuth,
+			value: is_authorized,
+		}
+	]
+
+		for (let req of requireds) {
+			if (req.invalid(req.value)) {
+				req.element.style.border = "solid 2px #FF0000";
+			} else {
+				req.element.style.border = "solid 2px #FFFFFF";
+			}
+		}
 	}
 
     onMount(() => {
@@ -24,15 +88,14 @@
 			})
 		}
 
+
 		Swal.fire({
 			confirmButtonColor: "#515141",
 			text: 'Complete su información a continuación para recibir su boleto por correo electrónico.',
 			footer: "Luego, será redirigido a la pantalla de casa.",
 		});
 	});
-	let is_newsletter;
-	let is_gift_box;
-	let is_authorized;
+
 </script>
 
 <svelte:head><script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script></svelte:head>
@@ -42,16 +105,16 @@
 		<form action="/submit" method="POST" bind:this={form}>
 			<section>
 			<h2>Información Personal</h2>
-			<input type="text" id="fname" name="fname"  placeholder="Nombre *" class="wide-input" required>
-			<input type="text" id="lname" name="lname" placeholder="Apellidos *" class="narrow-input" required>
+			<input bind:this={elFname} type="text" id="fname" name="fname"  placeholder="Nombre *" class="wide-input" bind:value={fname} required>
+			<input bind:this={elLname} type="text" id="lname" name="lname" placeholder="Apellidos *" class="narrow-input" bind:value={lname} required>
 			<input type="text" id="country" name="country" placeholder="Pais" class="narrow-input">
 			<input type="text" id="department" name="department" placeholder="Departmento" class="narrow-input">
 			<input type="text" id="city" name="city" placeholder="Ciudad / Municipio" class="narrow-input">
 			<input type="text" id="town" name="neighborhood" placeholder="Barrio" class="narrow-input">
 			<input type="text" id="street_address" name="street_address" placeholder="Dirección de Residencia" class="narrow-input">
-			<input type="text" id="id_no" name="id_no" pattern="^[0-9]{'{'}6,10{'}'}$" placeholder="Numero de Celdula *" value={id_no} on:input={stripWhitespaceFromID} class="narrow-input" required>
-			<input type="text" id="phone" name="phone" pattern="^3[0-9]{'{'}9{'}'}$" placeholder="Número de Celular (3XXXXXXXXXX)" value={phone} on:input={stripWhitespaceFromPhone}  class="wide-input">
-			<input type="text" id="email" name="email" placeholder="Correo Electrónico *" class="wide-input" required>
+			<input bind:this={elID} type="text" id="id_no" name="id_no" pattern="^[0-9]{'{'}6,10{'}'}$" placeholder="Numero de Celdula *" bind:value={id_no} on:input={stripWhitespaceFromID} class="narrow-input" required>
+			<input bind:this={elPhone} type="text" id="phone" name="phone" pattern="^3[0-9]{'{'}9{'}'}$" placeholder="Número de Celular (3XXXXXXXXXX)" bind:value={phone} on:input={stripWhitespaceFromPhone}  class="wide-input">
+			<input bind:this={elEmail} type="text" id="email" name="email" placeholder="Correo Electrónico *" bind:value={email} class="wide-input" required>
 			<select name="gender" class="narrow-input select select-placeholder">
 				<option value="label" disabled selected hidden>Sexo</option>
 				{#each genders as gender}
@@ -101,13 +164,15 @@
 				<label for="gift_box">Caja de regalo</label>
 			</div>
 
-			<div class="checkbox">
-				<input type="checkbox" id="authorized" name="authorized" value={is_authorized} bind:checked={is_authorized} required>
+			<div  class="checkbox">
+				<div style="display:inline-block" id="is_auth" bind:this={elIsAuth}>
+					<input type="checkbox" id="authorized" name="authorized" bind:value={is_authorized} bind:checked={is_authorized} required>
+				</div>
 				<label for="authorized">Autorización de uso de información personal *</label>
 			</div>
 
 			<div class="btn-submit-wrap">
-				<input type="submit" value="Entregar" class="btn-filled">
+				<input on:click={validate} type="submit" value="Entregar" class="btn-filled">
 			</div>
 
 			</section>

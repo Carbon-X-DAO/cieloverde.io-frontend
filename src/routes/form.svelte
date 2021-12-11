@@ -1,29 +1,40 @@
 <script>
     import { onMount } from 'svelte';
-    let root;
+    let form;
 
     let genders = ["Masculino", "Femenino", "Otro"];
     let dropdownNames = ["gender", "age", "daily_qty", "weekly_qty", "monthly_qty"]
 
+	function stripWhitespace(evt) {
+		console.log("this is a test")
+		console.log(evt)
+	}
     onMount(() => {
 	    for (name of dropdownNames) {
-		    let selection = root.querySelector(`[name="${name}"]`);
+		    let selection = form.querySelector(`[name="${name}"]`);
 		    selection.addEventListener('change', () => {
 			    selection.classList.remove("select-placeholder")
 			})
 		}
+
+		form.addEventListener('submit', stripWhitespace)
+
+		Swal.fire('Complete su información a continuación para recibir su boleto por correo electrónico. Luego, será redirigido a la pantalla de inicio.')
 	});
 
 	let is_newsletter;
 	let is_gift_box;
 	let is_authorized;
 </script>
+
+<svelte:head><script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script></svelte:head>
+
 <main>
 	<div class="content form">
-		<form action="/submit" method="POST" bind:this={root}>
+		<form action="/submit" method="POST" bind:this={form}>
 			<section>
 			<h2>Información Personal</h2>
-			<input type="text" id="fname" name="fname" placeholder="Nombre *" class="wide-input" required>
+			<input type="text" id="fname" name="fname"  placeholder="Nombre *" class="wide-input" required>
 			<input type="text" id="lname" name="lname" placeholder="Apellidos *" class="narrow-input" required>
 			<input type="text" id="country" name="country" placeholder="Pais" class="narrow-input">
 			<input type="text" id="department" name="department" placeholder="Departmento" class="narrow-input">

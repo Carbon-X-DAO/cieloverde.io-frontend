@@ -35,11 +35,11 @@
 	</p>
 	
 	<h3>Futuro Projectos En Desarrollo:</h3>
-	<p>
-	1. Proveedor de semillas y clones con verificación de trazabilidad.
-	2. Proyecto de proveedor contractual.
-	3. Proyecto Medicinal Marajuana.
-	</p>
+	<ol>
+		<li> Proveedor de semillas y clones con verificación de trazabilidad. </li>
+		<li> Proyecto de proveedor contractual. </li>
+		<li> Proyecto Medicinal Marajuana. </li>
+	</ol>
 
 </div>
 

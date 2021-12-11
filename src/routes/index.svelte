@@ -33,7 +33,7 @@
 			<span class="fa-stack fa-2x">
 				<i class="fa fa-globe fa-stack-1x"></i>
 			</span>
-			<p>Sobre Nosotros/p>
+			<p>Sobre Nosotros</p>
 		</a></li>
 		<li class="card" class:active={$page.path === '/form'}><a sveltekit:prefetch href="/form">
 			<span class="fa-stack fa-2x">
@@ -152,7 +152,7 @@
 	}
 
 	@media (min-width: 320px) {
-		h1 {
+		h1, h3 {
 			text-align: left;
 			color: #ffffff;
 			font-size: 38px;
@@ -164,7 +164,7 @@
 			max-width: calc(66.6% - 15px);
 			margin-top: 120px;
 		}
-		h1 {
+		h1, h3 {
 			font-size: 88px;
 		}
 		.banner__img {

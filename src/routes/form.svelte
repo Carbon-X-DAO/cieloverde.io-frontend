@@ -29,7 +29,7 @@
 			<input type="text" id="department" name="department" placeholder="Departmento" class="narrow-input">
 			<input type="text" id="city" name="city" placeholder="Ciudad / Municipio" class="narrow-input">
 			<input type="text" id="town" name="neighborhood" placeholder="Barrio" class="narrow-input">
-			<input type="text" id="street_address" name="street_address" placeholder="Calle / Numero" class="narrow-input">
+			<input type="text" id="street_address" name="street_address" placeholder="Dirección de Residencia" class="narrow-input">
 			<input type="text" id="id_no" name="id_no" pattern="[0-9]{'{'}6-10{'}'}" placeholder="Numero de Celdula *" class="narrow-input" required>
 			<input type="text" id="phone" name="phone" pattern="3[0-9]{'{'}9{'}'}" placeholder="Número de Celular (3XXXXXXXXXX)" class="wide-input">
 			<input type="text" id="email" name="email" placeholder="Correo Electrónico *" class="wide-input" required>

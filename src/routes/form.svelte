@@ -24,9 +24,12 @@
 			})
 		}
 
-		Swal.fire('Complete su información a continuación para recibir su boleto por correo electrónico. Luego, será redirigido a la pantalla de inicio.')
+		Swal.fire({
+			confirmButtonColor: "#515141",
+			text: 'Complete su información a continuación para recibir su boleto por correo electrónico.',
+			footer: "Luego, será redirigido a la pantalla de casa.",
+		});
 	});
-
 	let is_newsletter;
 	let is_gift_box;
 	let is_authorized;

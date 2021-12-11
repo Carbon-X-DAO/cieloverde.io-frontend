@@ -4,11 +4,18 @@
 
     let genders = ["Masculino", "Femenino", "Otro"];
     let dropdownNames = ["gender", "age", "daily_qty", "weekly_qty", "monthly_qty"]
+	
+	let id_no = null;
+	let phone = null;
 
-	function stripWhitespace(evt) {
-		console.log("this is a test")
-		console.log(evt)
+	function stripWhitespaceFromID(e) {
+		id_no = e.target.value.trim();
 	}
+
+	function stripWhitespaceFromPhone(e) {
+		phone = e.target.value.trim();
+	}
+
     onMount(() => {
 	    for (name of dropdownNames) {
 		    let selection = form.querySelector(`[name="${name}"]`);
@@ -16,8 +23,6 @@
 			    selection.classList.remove("select-placeholder")
 			})
 		}
-
-		form.addEventListener('submit', stripWhitespace)
 
 		Swal.fire('Complete su información a continuación para recibir su boleto por correo electrónico. Luego, será redirigido a la pantalla de inicio.')
 	});
@@ -41,8 +46,8 @@
 			<input type="text" id="city" name="city" placeholder="Ciudad / Municipio" class="narrow-input">
 			<input type="text" id="town" name="neighborhood" placeholder="Barrio" class="narrow-input">
 			<input type="text" id="street_address" name="street_address" placeholder="Dirección de Residencia" class="narrow-input">
-			<input type="text" id="id_no" name="id_no" pattern="[0-9]{'{'}6-10{'}'}" placeholder="Numero de Celdula *" class="narrow-input" required>
-			<input type="text" id="phone" name="phone" pattern="3[0-9]{'{'}9{'}'}" placeholder="Número de Celular (3XXXXXXXXXX)" class="wide-input">
+			<input type="text" id="id_no" name="id_no" pattern="^[0-9]{'{'}6,10{'}'}$" placeholder="Numero de Celdula *" value={id_no} on:input={stripWhitespaceFromID} class="narrow-input" required>
+			<input type="text" id="phone" name="phone" pattern="^3[0-9]{'{'}9{'}'}$" placeholder="Número de Celular (3XXXXXXXXXX)" value={phone} on:input={stripWhitespaceFromPhone}  class="wide-input">
 			<input type="text" id="email" name="email" placeholder="Correo Electrónico *" class="wide-input" required>
 			<select name="gender" class="narrow-input select select-placeholder">
 				<option value="label" disabled selected hidden>Sexo</option>
@@ -94,7 +99,7 @@
 			</div>
 
 			<div class="checkbox">
-				<input type="checkbox" id="authorized" name="authorized" value={is_authorized} bind:checked={is_authorized}>
+				<input type="checkbox" id="authorized" name="authorized" value={is_authorized} bind:checked={is_authorized} required>
 				<label for="authorized">Autorización de uso de información personal *</label>
 			</div>
 

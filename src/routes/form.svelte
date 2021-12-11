@@ -6,7 +6,6 @@
 	let elLname;
 	let elEmail;
 	let elID;
-	let elPhone;
 	let elIsAuth;
 
     let genders = ["Masculino", "Femenino", "Otro"];
@@ -31,6 +30,11 @@
 		phone = e.target.value.trim();
 	}
 
+
+	function stripWhitespaceFromEmail(e) {
+		email = e.target.value.trim();
+	}
+
 	function validate(evt) {
 		let requireds = [
 		{
@@ -52,12 +56,6 @@
 			value: id_no,
 		},
 		{
-			name: "phone",
-			invalid: function(val) {if (!val) {return true}; return !/^3[0-9]{9}$/.test(parseInt(val))},
-			element: elPhone,
-			value: phone,
-		},
-			{
 			name: "email",
 			invalid: function(val) {if (!val) {return true}; return false;},
 			element: elEmail,
@@ -113,8 +111,8 @@
 			<input type="text" id="town" name="neighborhood" placeholder="Barrio" class="narrow-input">
 			<input type="text" id="street_address" name="street_address" placeholder="Dirección de Residencia" class="narrow-input">
 			<input bind:this={elID} type="text" id="id_no" name="id_no" pattern="^[0-9]{'{'}6,10{'}'}$" placeholder="Numero de Celdula *" bind:value={id_no} on:input={stripWhitespaceFromID} class="narrow-input" required>
-			<input bind:this={elPhone} type="text" id="phone" name="phone" pattern="^3[0-9]{'{'}9{'}'}$" placeholder="Número de Celular (3XXXXXXXXXX)" bind:value={phone} on:input={stripWhitespaceFromPhone}  class="wide-input">
-			<input bind:this={elEmail} type="text" id="email" name="email" placeholder="Correo Electrónico *" bind:value={email} class="wide-input" required>
+			<input type="text" id="phone" name="phone" pattern="^3[0-9]{'{'}9{'}'}$" placeholder="Número de Celular (3XXXXXXXXXX)" bind:value={phone} on:input={stripWhitespaceFromPhone}  class="wide-input">
+			<input bind:this={elEmail} type="text" id="email" name="email" placeholder="Correo Electrónico *" bind:value={email}  on:input={stripWhitespaceFromEmail} class="widegmail.com -input" required>
 			<select name="gender" class="narrow-input select select-placeholder">
 				<option value="label" disabled selected hidden>Sexo</option>
 				{#each genders as gender}

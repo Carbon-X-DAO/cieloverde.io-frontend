@@ -34,9 +34,6 @@
 					</ul>
 				</nav> -->
 			
-				<div>
-					<a href="/about" class="ghost-btn">Sobre Nosotros</a>
-				</div>
 			</div>
 		</div>
 	</div>

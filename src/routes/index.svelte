@@ -23,12 +23,6 @@
 	</div>
 
 	<ul class="cards">
-		<li class="card" class:active={$page.path === '/'}><a sveltekit:prefetch href="/">
-			<span class="fa-stack fa-2x">
-				<i class="fa fa-leaf fa-stack-1x"></i>
-			</span>
-			<p>Casa</p>
-		</a></li>
 		<li class="card" class:active={$page.path === '/about'}><a sveltekit:prefetch href="/about">
 			<span class="fa-stack fa-2x">
 				<i class="fa fa-globe fa-stack-1x"></i>
@@ -152,11 +146,15 @@
 	}
 
 	@media (min-width: 320px) {
-		h1, h3 {
+		h1 {
 			text-align: left;
 			color: #ffffff;
 			font-size: 38px;
 			font-weight: bold;
+		}
+		
+		h3 {
+			font-size: 26px;
 		}
 	}
 	@media (min-width: 600px) {
@@ -164,9 +162,15 @@
 			max-width: calc(66.6% - 15px);
 			margin-top: 120px;
 		}
-		h1, h3 {
+
+		h1 {
 			font-size: 88px;
 		}
+
+		h3 {
+			font-size: 64px;
+		}
+
 		.banner__img {
 			width: 79vw;
 			height: 700px;

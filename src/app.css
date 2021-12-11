@@ -81,7 +81,8 @@ body::before {
 h1,
 h2,
 h3,
-p {
+p,
+ol{
 	font-weight: 400;
 	color: var(--pure-white);
 }
